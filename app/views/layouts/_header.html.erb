@@ -1,27 +1,39 @@
 <header>
   <div class="row">
-     <div class="small-2 columns" style="height: 60px;">
-        <h1 style="position: fixed; width: 150px;">
-          <img src="assets/logo_wed-e.png"></h1>
-      </div>
-    <div class="small-2 push-1 columns login-top">
-      <a href="#login" style="position : fixed">
-      <img class="logo" src="assets/login.png"/>
-    </a>
-  </div> 
-</div>
-</header>
+    <% if user_signed_in? or weddy_signed_in? or supplier_signed_in? %>
+    
+         <!-- Header and Nav -->
+  
+        <div class="row">
+          <div class="large-2 columns">
+            <h2>Wed-e</h2>
+          </div>
+          <div class="large-10 columns">
+            <ul class="inline-list right">
+              <% if supplier_signed_in? %>
+              <li><%= link_to 'Salir', destroy_supplier_session_path, :method=>'delete' %></li>
+              <li><%= link_to "Configuración", edit_supplier_path(current_supplier) %></li>
+              <% elsif weddy_signed_in? %>  
+                <li><%= link_to 'Salir', destroy_weddy_session_path, :method=>'delete' %></li>
+                <li><%= link_to "Configuración", edit_weddy_path(current_weddy) %></li>
+              <% else user_signed_in? %>  
+                <li><%= link_to 'Salir', destroy_user_session_path, :method=>'delete' %></li>
+                <li><%= link_to "Configuración", edit_user_path(current_user) %></li>
+              <% end %>         
+            </ul>
+          </div>
+        </div>
+    
 
-  <!--div class="row">
-    <div class="large-3 columns">
-        <h1><img src="assets/logo_wed-e.png"></h1>
+    <!-- for no sessions -->
+    <%else%>
+      <div class="small-2 columns" style="height: 60px;">
+           <%= link_to image_tag("logo_wed-e.png"), root_path %>
       </div>
-      <div class="large-9 columns">
-        <ul class="right button-group">
-        <li><a href="#" class="button">Link 1</a></li>
-        <li><a href="#" class="button">Link 2</a></li>
-        <li><a href="#" class="button">Link 3</a></li>
-        <li><a href="#" class="button">Link 4</a></li>
-        </ul>
-    </div>
-  </div-->
+      <div class="small-2 push-1 columns login-top">
+          <%= link_to image_tag("login.png", :class => 'logo'), new_weddy_session_path %>
+      </div> 
+      
+    <%end%>
+  </div>
+</header>

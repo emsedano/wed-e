@@ -1,0 +1,2 @@
+module WeddiesHelper
+end

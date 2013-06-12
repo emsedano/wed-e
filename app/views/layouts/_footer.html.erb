@@ -1,9 +1,11 @@
 <footer class="row">
   <div class="large-12 columns">
+    <% if user_signed_in? or weddy_signed_in? or supplier_signed_in? %>
+    <% else%>
     <hr>
     <div class="row">
-      <div class="small-4 columns">
-          <a href="#" class="button success radius" >Eres proveedor ?</a>
+      <div class="small-4 columns">          
+          <%= link_to "Eres proveedor?", "/supplier_home", :class => "button success radius"%>
       </div>
       <div class="small-4 columns">            
           <div id="logo" class = "logoabajo"></div>
@@ -17,5 +19,7 @@
           </ul>
       </div>
       </div>
+      <%end%>
+
   </div>
 </footer>
