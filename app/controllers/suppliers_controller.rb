@@ -1,4 +1,6 @@
 class SuppliersController < ApplicationController
+	
+	before_filter :authenticate_supplier!
 
 	def index
 	end

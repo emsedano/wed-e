@@ -1,5 +1,7 @@
 class WeddiesController < ApplicationController
-
+	
+	before_filter :authenticate_weddy!
+	
 	def index 
 	end
 

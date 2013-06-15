@@ -2,6 +2,8 @@
 <div class="row">
   <div class="small-5 small-centered columns">
     <h1>Update your profile</h1>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
       <%= form_for(@user) do |f| %>
 
@@ -11,6 +13,8 @@
         <%= f.label :email %>
         <%= f.text_field :email %>
 
+        <%= f.radio_button :role, "weddy" ,:required => true %> <%= f.label :role, "...Soy quen se casa" %>
+        <%= f.radio_button :role, "supplier" ,:required => true %> <%= f.label :role, "...Soy proveedor de bodas" %>
 
         <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
       <% end %>

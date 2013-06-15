@@ -5,6 +5,7 @@ class Weddy < User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :authorizations, :dependent => :destroy
   # Setup accessible (or protected) attributes for your model
   
 end
