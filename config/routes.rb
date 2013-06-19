@@ -24,6 +24,8 @@ WedE::Application.routes.draw do
   match '/supplier_home',   to: 'static_pages#supplier_home'
   match '/contacto',    to: 'static_pages#contact'
 
+  match ':name' => 'weddies#index', :as => 'weddy_home'
+
   match '/auth/:authorization/callback' => 'authorizations#create' 
   resources :services, :only => [:index, :create, :destroy]
 end

@@ -22,7 +22,7 @@ class AuthorizationsController < ApplicationController
 	    
 	    #a menos que exista el usuario
 	    if @user != nil
-	    	print "user exist with role : " + @user.role
+	    	
 	    	if @user.role == "weddy"	
 		    	@weddy = @user   
 				sign_in_and_redirect(:weddy, @weddy)
@@ -44,6 +44,8 @@ class AuthorizationsController < ApplicationController
 	    	#:provider, :uemail, :uid, :uname, :user_id
 	    	auth = Authorization.new
 	    	auth.user = new_user
+	    	auth.weddy_id = new_user.id
+	    	auth.supplier_id = new_user.id
 	    	auth.provider = provider
 	    	auth.uid = uid
 	    	auth.uname = name

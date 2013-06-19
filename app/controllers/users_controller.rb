@@ -5,13 +5,18 @@ class UsersController < ApplicationController
 	def index 
 		print "index for user has been called"
 
-		if current_user.role == "weddy"
-			sign_in_and_redirect(:weddy, current_user)
+		if current_user.role == "weddy"	
+		    @weddy = current_user   
+			sign_in_and_redirect(:weddy, @weddy)
 		elsif current_user.role == "supplier"
-			sign_in_and_redirect(:supplier, current_user)
+			@supplier = current_user
+			sign_in_and_redirect(:supplier, @supplier)
+		else		   
+			#sign_in_and_redirect(:user, @user)
+			redirect_to edit_user_path(current_user)
 		end
 
-		redirect_to edit_user_path(current_user)
+		
 	end
 
 	def show

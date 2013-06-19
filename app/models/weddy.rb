@@ -7,5 +7,6 @@ class Weddy < User
 
   has_many :authorizations, :dependent => :destroy
   # Setup accessible (or protected) attributes for your model
-  
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :role
+  attr_accessible :budget, :guests, :name, :phone, :weddate
 end
