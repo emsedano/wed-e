@@ -3,10 +3,13 @@ class WeddiesController < ApplicationController
 	before_filter :authenticate_weddy!
 	
 	def index 
+		
 	end
 
 	def show
 		@weddy = Weddy.find(params[:id])
+	    @requirements = @weddy.requirements
+	    @categories = Category.all
 	end
 
 	def edit
@@ -23,6 +26,18 @@ class WeddiesController < ApplicationController
 	    end
 	end
 
+	# add requirement
+	def add_requirement
+		
+		req = Requirement.new
+		req.weddy_id = current_weddy.id
+		req.category_id = params[:id]
+		req.save
 
+		flash[:success] = "Profile updated"
+
+
+		redirect_to current_weddy
+	end
 
 end

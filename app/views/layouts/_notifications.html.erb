@@ -1,0 +1,12 @@
+<% if flash.any? %>
+<div class="row">
+<% flash.each do |key, value| %>
+	<div class="small-6 small-centered columns">		
+        <div data-alert="" class="alert-box success" height="30">
+	    	<%= content_tag(:p, value) %>
+	        <a href="" class="close">×</a>
+    	</div>
+    </div>        
+<% end %>     
+</div>
+<% end %>

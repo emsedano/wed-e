@@ -1,0 +1,18 @@
+ <%= stylesheet_link_tag    "categories" %>
+<div class="row">
+	<div class="small-10 small-centered columns">
+		<% if @categories.any? %>
+		<table>
+		  <thead>
+		    <tr>
+		      <th width="400">Necesito...</th>
+		      <th width="150">Agregar</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	<%= render partial: 'shared/category', collection: @categories %>
+		  </tbody>
+		</table>
+<% end %>
+	</div>
+</div>

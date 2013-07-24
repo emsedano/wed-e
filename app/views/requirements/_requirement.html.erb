@@ -1,0 +1,52 @@
+
+<li id="req_<%= requirement.id %>">
+  <%= form_for(requirement) do |f| %>
+  <fieldset>
+    <legend><%= requirement.category.name %></legend>
+    
+    <div class="row">
+      <div class="large-6 columns" id="slider_range_<%= requirement.id %>"></div>
+      <div class="large-3 columns">
+        <label for="requirement_hight_budget">Presupuesto:</label>
+      </div>
+      <div class="large-3 columns">
+        <input type="text" id="amount_<%= requirement.id %>" style="border: 0; color: #f6931f; font-weight: bold;" />
+        <%= f.text_field :low_budget %>
+        <%= f.text_field :high_budget %>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="large-12 columns">     
+        <% if current_weddy.eql?(requirement.weddy) %>
+        <%= f.submit "Actualizar", class: "tiny button" %>
+        <%= link_to "Eliminar", requirement, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: requirement.category.name ,
+                                     :class => "tiny button"%>
+        
+      <% end %>
+      </div>
+    </div>
+
+  </fieldset>
+<% end %>
+</li>
+  <!-- Scripts -->
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    $( "#slider_range_<%= requirement.id %>" ).slider({
+      range: true,
+      min: 0,
+      max: 1000,
+      values: [ 10, 100 ],
+      slide: function( event, ui ) {
+        $( "#amount_<%= requirement.id %>" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+      }
+    });
+    $( "#amount_<%= requirement.id %>" ).val( "$" + $( "#slider_range_<%= requirement.id %>" ).slider( "values", 0 ) +
+      " - $" + $( "#slider_range_<%= requirement.id %>" ).slider( "values", 1 ) );
+  });
+
+  </script>

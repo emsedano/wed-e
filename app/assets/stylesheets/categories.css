@@ -1,0 +1,46 @@
+ 
+ul.categories {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ 
+ul.categories li {
+  font: 200 20px/1.5 Helvetica, Verdana, sans-serif;
+  border-bottom: 1px solid #ccc;  
+}
+ 
+ul.categories li:last-child {
+  border: none;
+}
+
+ul.categories li div{
+  display: inline;
+  width: 50%;
+  position: relative;
+}
+ 
+ul.categories li span {
+  text-decoration: none;
+  color: #000;
+  display: inline;
+  width: 100%;
+  cursor: pointer;
+ 
+  -webkit-transition: font-size 0.4s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.4s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.4s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.4s ease, background-color 0.3s ease;
+  transition: font-size 0.4s ease, background-color 0.3s ease;
+}
+ 
+ul.categories li:hover{
+  background-color: #f6f6f6;
+}
+
+ul.categories span:hover{
+  color: #3465aa;
+}
+*/

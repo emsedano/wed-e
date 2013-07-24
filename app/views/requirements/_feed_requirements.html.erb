@@ -1,0 +1,12 @@
+<% if @requirements.any? %>
+    <ul class="categories">
+      <%= render partial: 'requirements/requirement', collection: @requirements %>
+    </ul>
+<% else %>
+<div class="row">
+	<div>
+		<h2>Aún no has agregado requerimientos...!!!</h2>
+	</div>
+</div>
+<% end %>
+

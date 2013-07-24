@@ -43,14 +43,19 @@
           <div class="large-10 columns">
             <ul class="inline-list right">
               <% if supplier_signed_in? %>
+              <li><%= link_to "Configuración", show_supplier_path(current_supplier) %></li>
+              <li><%= link_to "Cuenta", edit_supplier_path(current_supplier) %></li>
               <li><%= link_to 'Salir', destroy_supplier_session_path, :method=>'delete' %></li>
-              <li><%= link_to "Configuración", edit_supplier_path(current_supplier) %></li>
               <% elsif weddy_signed_in? %>  
+                <li><%= link_to "Configuración", :controller => "weddies", :action => "show", :id => current_weddy %></li>
+                <li><%= link_to "Cuenta", edit_weddy_path(current_weddy) %></li>
                 <li><%= link_to 'Salir', destroy_weddy_session_path, :method=>'delete' %></li>
-                <li><%= link_to "Configuración", edit_weddy_path(current_weddy) %></li>
-              <% else user_signed_in? %>  
-                <li><%= link_to 'Salir', destroy_user_session_path, :method=>'delete' %></li>
+                
+              <% else user_signed_in? %> 
                 <li><%= link_to "Configuración", edit_user_path(current_user) %></li>
+                <li><%= link_to "Cuenta", edit_user_path(current_user) %></li> 
+                <li><%= link_to 'Salir', destroy_user_session_path, :method=>'delete' %></li>
+
               <% end %>         
             </ul>
           </div>

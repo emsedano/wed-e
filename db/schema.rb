@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618053023) do
+ActiveRecord::Schema.define(:version => 20130709163604) do
 
   create_table "authorizations", :force => true do |t|
     t.integer  "user_id"
@@ -23,6 +23,49 @@ ActiveRecord::Schema.define(:version => 20130618053023) do
     t.datetime "updated_at",  :null => false
     t.integer  "weddy_id"
     t.integer  "supplier_id"
+  end
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "color"
+    t.string   "image"
+  end
+
+  create_table "pricing_types", :force => true do |t|
+    t.string   "type"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pricings", :force => true do |t|
+    t.string   "Pricing_Type"
+    t.string   "type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "requirements", :force => true do |t|
+    t.integer  "weddy_id"
+    t.integer  "category_id"
+    t.integer  "low_budget"
+    t.integer  "high_budget"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "services", :force => true do |t|
+    t.integer  "supplier_id"
+    t.integer  "category_id"
+    t.string   "name"
+    t.string   "description"
+    t.integer  "pricing1"
+    t.integer  "pricing2"
+    t.integer  "pricing3"
+    t.integer  "pricing_type_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|
