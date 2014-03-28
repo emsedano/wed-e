@@ -39,13 +39,6 @@ ActiveRecord::Schema.define(:version => 20130709163604) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "pricings", :force => true do |t|
-    t.string   "Pricing_Type"
-    t.string   "type"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "requirements", :force => true do |t|
     t.integer  "weddy_id"
     t.integer  "category_id"
