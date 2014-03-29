@@ -44,7 +44,7 @@ module WedE
 
     config.generators.stylesheet_engine = :sass
     
-    config.assets.precompile += ['general_enclosed_foundicons.css']
+    config.assets.precompile += ['general_enclosed_foundicons.css', 'categories.css', 'application.css', 'general_enclosed_foundicons_ie7.css']
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,
