@@ -33,7 +33,7 @@ WedE::Application.configure do
   config.assets.compress = false
 
   config.cache_store = false
-
+  config.sass.cache = false
   # Expands the lines which load the assets
   config.assets.debug = true
 end
