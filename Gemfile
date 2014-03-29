@@ -7,6 +7,8 @@ gem 'rails', '3.2.13'
 gem 'jquery-rails'
 gem "jquery-ui-rails"
 
+gem 'sass-rails',   '~> 3.2.3'
+
 gem "simple_form", ">= 2.1.0"
 gem "devise", ">= 2.2.3"
 
@@ -17,7 +19,7 @@ gem 'omniauth-facebook'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
