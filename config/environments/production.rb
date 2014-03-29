@@ -22,7 +22,7 @@ WedE::Application.configure do
 
   config.cache_store = false
   
-  
+  config.sass.cache = false
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
